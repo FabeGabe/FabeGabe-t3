@@ -1,0 +1,3 @@
+name: FabeGabe-t3
+main: com.tenjava.entries.FabeGabe.t3.TenJava
+version: '${project.version}'
