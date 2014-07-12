@@ -11,9 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.util.Vector;
-
-import java.util.List;
 
 public class ExplodeListener implements Listener {
 
