@@ -1,6 +1,5 @@
 package com.tenjava.entries.FabeGabe.t3.Listeners;
 
-import com.sun.webpane.webkit.unicode.TextNormalizer;
 import com.tenjava.entries.FabeGabe.t3.TenJava;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
