@@ -79,10 +79,15 @@ public class InteractListener implements Listener {
             return;
             IronGolem golem = (IronGolem) ent;
             if(hand.getType() == Material.ARROW) {
+                if(golem.getCustomName() != null){
+                    p.sendMessage(ChatColor.RED + "That golem belongs to " + golem.getCustomName());
+                    return;
+                } else {
                 golem.setPlayerCreated(true);
                 golem.setCustomNameVisible(true);
                 golem.setCustomName(ChatColor.RED + p.getName());
                 p.playEffect(golem.getLocation(), Effect.MOBSPAWNER_FLAMES, 10);
+                }
         }
     }
 }
