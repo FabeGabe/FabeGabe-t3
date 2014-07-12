@@ -9,8 +9,6 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.util.Vector;
-
 import java.util.Random;
 
 public class InteractListener implements Listener {
@@ -56,25 +54,6 @@ public class InteractListener implements Listener {
                             e.getClickedBlock().getLocation(),
                             EntityType.PRIMED_TNT);
                 } else return;
-                break;
-            case LEFT_CLICK_AIR:
-                if(hand.getType() == Material.APPLE) {
-                    Arrow projectile = p.shootArrow();
-                    projectile.setBounce(true);
-                    projectile.setShooter(p);
-                    Item item = p.getWorld().dropItemNaturally(projectile.getLocation(),
-                            new ItemStack(Material.APPLE));
-                    item.setVelocity(new Vector(p.getLocation().getBlockX() + 20,
-                            p.getLocation().getBlockY(), p.getLocation().getBlockZ() + 20));
-                    projectile.setPassenger(item);
-                    projectile.getWorld().createExplosion(projectile.getLocation().getBlockX(),
-                            projectile.getLocation().getBlockY(),
-                            projectile.getLocation().getBlockZ(),
-                            5,
-                            true,
-                            true);
-                } else
-                    return;
                 break;
             case RIGHT_CLICK_AIR:
                 if(hand.getType() == Material.BONE) {

@@ -24,8 +24,8 @@ public class DeathListener implements Listener {
         skullMeta.setOwner(p.getName());
         skullMeta.setDisplayName(ChatColor.GOLD + p.getName() + "'s Head");
         head.setItemMeta(skullMeta);
-        switch (r.nextInt(10)) {
-            case 10:
+        switch (r.nextInt(4)) {
+            case 4:
                 e.getDrops().add(head);
                 break;
             default:
@@ -40,8 +40,8 @@ public class DeathListener implements Listener {
         Random r = new Random();
         ItemStack witherSkull = new ItemStack(Material.SKULL_ITEM, 1);
         witherSkull.setTypeId(1);
-        switch(r.nextInt(20)) {
-            case 20:
+        switch(r.nextInt(4)) {
+            case 4:
                 switch(entity.getType()) {
                     case COW:
                         e.getDrops().add(new ItemStack(Material.COOKED_BEEF, r.nextInt(4)));
@@ -78,8 +78,8 @@ public class DeathListener implements Listener {
                 break;
         }
 
-        switch(r.nextInt(100)) {
-            case 100:
+        switch(r.nextInt(5)) {
+            case 5:
                 switch(entity.getType()) {
                     case HORSE:
                         e.getDrops().add(new ItemStack(Material.SADDLE, 1));
