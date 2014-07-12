@@ -2,18 +2,13 @@ package com.tenjava.entries.FabeGabe.t3.Listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.SkullType;
-import org.bukkit.block.Skull;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.Random;
@@ -39,10 +34,9 @@ public class DeathListener implements Listener {
     }
 
     @EventHandler
+    @SuppressWarnings("deprecation")
     public void onEntityDeath(EntityDeathEvent e) {
         Entity entity = e.getEntity();
-        if(entity instanceof Player || !(entity instanceof LivingEntity))
-            return;
         Random r = new Random();
         ItemStack witherSkull = new ItemStack(Material.SKULL_ITEM, 1);
         witherSkull.setTypeId(1);

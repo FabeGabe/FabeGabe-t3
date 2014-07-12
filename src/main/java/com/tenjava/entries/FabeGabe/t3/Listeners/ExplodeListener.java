@@ -1,6 +1,5 @@
 package com.tenjava.entries.FabeGabe.t3.Listeners;
 
-import com.avaje.ebeaninternal.server.deploy.BeanDescriptor;
 import org.bukkit.Color;
 import org.bukkit.EntityEffect;
 import org.bukkit.FireworkEffect;

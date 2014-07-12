@@ -1,9 +1,5 @@
 package com.tenjava.entries.FabeGabe.t3.Listeners;
 
-/**
- * Created by phoenixros on 7/12/14.
- */
-
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -45,7 +41,7 @@ public class InteractListener implements Listener {
                 Firework fw = (Firework) p.getWorld().spawnEntity(fwSp, EntityType.FIREWORK);
                 FireworkMeta fwm = fw.getFireworkMeta();
                 fwm.addEffect(FireworkEffect.builder().
-                        flicker(Boolean.valueOf(r.nextBoolean()))
+                        flicker(r.nextBoolean())
                         .with(FireworkEffect.Type.STAR).
                                 withColor(Color.GREEN).build());
                 fw.setFireworkMeta(fwm);
@@ -63,17 +59,13 @@ public class InteractListener implements Listener {
                 break;
             case LEFT_CLICK_AIR:
                 if(hand.getType() == Material.APPLE) {
-                    Item item = (Item) p.getWorld().spawnEntity(p.getLocation(), EntityType.DROPPED_ITEM);
-                    item.setItemStack(new ItemStack(Material.APPLE, 1));
-                    item.setVelocity(new Vector(p.getLocation().getBlockX() + 20,
-                            p.getLocation().getBlockY(), p.getLocation().getBlockZ() + 20));
-                    item.setPickupDelay(20);
-                    Projectile projectile = p.launchProjectile(Arrow.class,
-                            new Vector(p.getLocation().getBlockX() + 20,
-                                    p.getLocation().getBlockY(),
-                                    p.getLocation().getBlockZ() + 20));
+                    Arrow projectile = p.shootArrow();
                     projectile.setBounce(true);
                     projectile.setShooter(p);
+                    Item item = p.getWorld().dropItemNaturally(projectile.getLocation(),
+                            new ItemStack(Material.APPLE));
+                    item.setVelocity(new Vector(p.getLocation().getBlockX() + 20,
+                            p.getLocation().getBlockY(), p.getLocation().getBlockZ() + 20));
                     projectile.setPassenger(item);
                     projectile.getWorld().createExplosion(projectile.getLocation().getBlockX(),
                             projectile.getLocation().getBlockY(),
@@ -99,6 +91,7 @@ public class InteractListener implements Listener {
     }
 
     @EventHandler
+    @SuppressWarnings("deprecation")
     public void onEntityInteract(PlayerInteractEntityEvent e) {
         Player p = e.getPlayer();
         Entity ent = e.getRightClicked();

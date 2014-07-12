@@ -11,8 +11,6 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.awt.*;
 import java.util.Random;
 
 public class CreateCommand implements CommandExecutor {
