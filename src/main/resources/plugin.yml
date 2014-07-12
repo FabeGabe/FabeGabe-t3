@@ -2,5 +2,5 @@ name: FabeGabe-t3
 main: com.tenjava.entries.FabeGabe.t3.TenJava
 version: '1.0'
 commands:
-   swagbomb:
+   swagexplosion:
       description: SwagBomb Command!
