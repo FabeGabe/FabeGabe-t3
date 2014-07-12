@@ -55,7 +55,7 @@ public class InteractListener implements Listener {
                             e.getClickedBlock().getLocation(),
                             EntityType.PRIMED_TNT);
                     tnt.setFuseTicks(100);
-                    tnt.setVelocity(new Vector(r.nextInt(20), r.nextInt(20), r.nextInt(20)));
+                    tnt.setVelocity(new Vector(0, r.nextInt(2), 0));
                     tnt.playEffect(EntityEffect.FIREWORK_EXPLODE);
                 } else return;
                 break;
