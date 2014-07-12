@@ -9,6 +9,8 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.util.Vector;
+
 import java.util.Random;
 
 public class InteractListener implements Listener {
@@ -44,15 +46,17 @@ public class InteractListener implements Listener {
                                 withColor(Color.GREEN).build());
                 fw.setFireworkMeta(fwm);
                 p.getWorld().createExplosion(fwSp, (float) s);
-
                 break;
             case RIGHT_CLICK_BLOCK:
                 if(e.getClickedBlock().getType() == Material.TNT){
                     e.getClickedBlock().setType(Material.AIR);
                     p.sendMessage(ChatColor.RED + "Creating swag bomb...");
-                    e.getClickedBlock().getWorld().spawnEntity(
+                    TNTPrimed tnt = (TNTPrimed) e.getClickedBlock().getWorld().spawnEntity(
                             e.getClickedBlock().getLocation(),
                             EntityType.PRIMED_TNT);
+                    tnt.setFuseTicks(100);
+                    tnt.setVelocity(new Vector(r.nextInt(20), r.nextInt(20), r.nextInt(20)));
+                    tnt.playEffect(EntityEffect.FIREWORK_EXPLODE);
                 } else return;
                 break;
             case RIGHT_CLICK_AIR:
