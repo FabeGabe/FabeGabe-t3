@@ -20,16 +20,12 @@ public class ExplodeListener implements Listener {
     @EventHandler
     public void onExplode(EntityExplodeEvent e) {
         Entity ent = e.getEntity();
-        List<Entity> entities = ent.getNearbyEntities(10, 10, 10);
         if(!(ent instanceof TNTPrimed))
             return;
-        for(Entity entity : entities) {
-            entity.setVelocity(new Vector(0, 2, 0));
-            entity.setFallDistance(0);
-            entity.setFireTicks(20);
-            entity.playEffect(EntityEffect.FIREWORK_EXPLODE);
-            Firework fw1 = (Firework) entity.getWorld().spawnEntity(entity.getLocation(), EntityType.FIREWORK);
-            Firework fw2 = (Firework) entity.getWorld().spawnEntity(entity.getLocation(), EntityType.FIREWORK);
+            ent.setFireTicks(20);
+            ent.playEffect(EntityEffect.FIREWORK_EXPLODE);
+            Firework fw1 = (Firework) ent.getWorld().spawnEntity(ent.getLocation(), EntityType.FIREWORK);
+            Firework fw2 = (Firework) ent.getWorld().spawnEntity(ent.getLocation(), EntityType.FIREWORK);
             FireworkMeta fw1m = fw1.getFireworkMeta();
             FireworkMeta fw2m = fw2.getFireworkMeta();
             fw1m.addEffect(FireworkEffect.builder().withColor(Color.GREEN).with(FireworkEffect.Type.BALL_LARGE)
@@ -39,6 +35,5 @@ public class ExplodeListener implements Listener {
                     with(FireworkEffect.Type.BURST).withFade(Color.AQUA).flicker(true).trail(false).build());
             fw1.setFireworkMeta(fw1m);
             fw2.setFireworkMeta(fw2m);
-        }
     }
 }
