@@ -26,7 +26,7 @@ public class DeathListener implements Listener {
         head.setItemMeta(skullMeta);
         switch (r.nextInt(10)) {
             case 10:
-                p.getWorld().dropItemNaturally(p.getLocation(), head);
+                e.getDrops().add(head);
                 break;
             default:
                 break;
@@ -44,31 +44,31 @@ public class DeathListener implements Listener {
             case 20:
                 switch(entity.getType()) {
                     case COW:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.COOKED_BEEF, r.nextInt(4)));
+                        e.getDrops().add(new ItemStack(Material.COOKED_BEEF, r.nextInt(4)));
                         break;
                     case MUSHROOM_COW:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.MUSHROOM_SOUP, r.nextInt(3)));
+                        e.getDrops().add(new ItemStack(Material.MUSHROOM_SOUP, r.nextInt(3)));
                         break;
                     case ENDERMAN:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.EYE_OF_ENDER, 1));
+                        e.getDrops().add(new ItemStack(Material.EYE_OF_ENDER, 1));
                         break;
                     case ENDER_DRAGON:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.DRAGON_EGG, 1));
+                        e.getDrops().add(new ItemStack(Material.DRAGON_EGG, 1));
                         break;
                     case SPIDER:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.FERMENTED_SPIDER_EYE, 1));
+                        e.getDrops().add(new ItemStack(Material.FERMENTED_SPIDER_EYE, 1));
                         break;
                     case PIG:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.GRILLED_PORK, r.nextInt(3)));
+                        e.getDrops().add(new ItemStack(Material.GRILLED_PORK, r.nextInt(3)));
                         break;
                     case PIG_ZOMBIE:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.GOLD_INGOT, r.nextInt(3)));
+                        e.getDrops().add(new ItemStack(Material.GOLD_INGOT, r.nextInt(3)));
                         break;
                     case CREEPER:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.TNT, 1));
+                        e.getDrops().add(new ItemStack(Material.TNT, 1));
                         break;
                     case WITHER:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), witherSkull);
+                        e.getDrops().add(witherSkull);
                         break;
                     default:
                         break;
@@ -82,7 +82,7 @@ public class DeathListener implements Listener {
             case 100:
                 switch(entity.getType()) {
                     case HORSE:
-                        entity.getWorld().dropItemNaturally(entity.getLocation(), new ItemStack(Material.SADDLE, 1));
+                        e.getDrops().add(new ItemStack(Material.SADDLE, 1));
                         break;
                     default:
                         break;

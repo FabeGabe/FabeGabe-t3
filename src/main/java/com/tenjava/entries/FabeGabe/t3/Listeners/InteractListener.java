@@ -96,16 +96,14 @@ public class InteractListener implements Listener {
         Player p = e.getPlayer();
         Entity ent = e.getRightClicked();
         ItemStack hand = p.getItemInHand();
-        if(ent instanceof IronGolem) {
+        if(!(ent instanceof IronGolem))
+            return;
             IronGolem golem = (IronGolem) ent;
             if(hand.getType() == Material.ARROW) {
                 golem.setPlayerCreated(true);
                 golem.setCustomNameVisible(true);
                 golem.setCustomName(ChatColor.RED + p.getName());
                 p.playEffect(golem.getLocation(), Effect.MOBSPAWNER_FLAMES, 10);
-            } else
-                return;
         }
     }
-
 }
